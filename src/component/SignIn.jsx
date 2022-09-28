@@ -9,8 +9,8 @@ const SignIn = () => {
 
     const [loginUser , responseInfo] = useGetLoginUserMutation();
     const [apiData, setApiData] = useState({
-        email: "",
-        password: "" ,
+       name : "",
+       age  : "" ,
     });
 
     
@@ -18,10 +18,10 @@ const SignIn = () => {
         e.preventDefault()
         loginUser(apiData)
         setApiData({
-            email: "",
-            password: "" ,
+            name : "",
+            age  : "" ,
         })
-        localStorage.setItem("tokan",responseInfo.data.token);
+        localStorage.setItem("token",responseInfo.data.token);
     }
  
      console.log("apidaybuisdilkvbghi",responseInfo.data)
@@ -36,10 +36,10 @@ const SignIn = () => {
                             </Form.Group>
 
                             <Form.Group className="mb-3">
-                                <Form.Label>Email address</Form.Label>
+                                <Form.Label>Email</Form.Label>
                                 <Form.Control
                                     type="email"
-                                    placeholder="Enter email"
+                                    placeholder="Enter Email"
                                     value={apiData.email}
                                     onChange={(e) => setApiData({ ...apiData, email: e.target.value })}
                                 />
@@ -49,9 +49,9 @@ const SignIn = () => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
                                     type="password"
-                                    placeholder="Password"
+                                    placeholder="Enter Password"
                                     value={apiData.password}
-                                    onChange={(e) => setApiData({ ...apiData, password: e.target.value })}
+                                    onChange={(e) => setApiData({ ...apiData, password : e.target.value })}
                                 />
                             </Form.Group>
 

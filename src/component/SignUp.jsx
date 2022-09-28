@@ -12,25 +12,28 @@ const SignUp = () => {
 
     const [createUser , responseInfo] = useGetRegisterUserMutation()
     const [apiData, setApiData] = useState({
-        email: "",
-        password: "" ,
-        fullName : "" ,
+        name : "" ,
+        email  : "",
+        password : "" ,
     });
 
-
+    console.log(999,responseInfo);
 
     const handleSubmit = (e) => {
+        console.log("rsponse",e)
         e.preventDefault()
         createUser(apiData)
         setApiData({
-            email: "",
-            password: "" ,
-            fullName : ""  
+            name : "" ,
+            email  : "",
+            password : "" ,
         })
         var list = JSON.parse(localStorage.getItem("apiData"));
         let data = list ? list : [];
         localStorage.setItem("apiData", JSON.stringify([...data , apiData]));
     }
+
+    console.log(888,apiData)
 
     return (
         <div className='container'>
@@ -43,22 +46,22 @@ const SignUp = () => {
                             </Form.Group>
 
                             <Form.Group className="mb-3">
-                                <Form.Label>FullName</Form.Label>
+                                <Form.Label>Enter Name</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    placeholder="Enter email"
-                                    value={apiData.fullName}
-                                    onChange={(e) => setApiData({ ...apiData, fullName: e.target.value })}
+                                    placeholder="Enter name"
+                                    value={apiData.name}
+                                    onChange={(e) => setApiData({ ...apiData, name: e.target.value })}
                                 />
                             </Form.Group>
 
                             <Form.Group className="mb-3">
-                                <Form.Label>Email address</Form.Label>
+                                <Form.Label>Email Address</Form.Label>
                                 <Form.Control
                                     type="email"
                                     placeholder="Enter email"
                                     value={apiData.email}
-                                    onChange={(e) => setApiData({ ...apiData, email: e.target.value })}
+                                    onChange={(e) => setApiData({ ...apiData, email : e.target.value })}
                                 />
                             </Form.Group>
 
@@ -66,9 +69,9 @@ const SignUp = () => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
                                     type="password"
-                                    placeholder="Password"
+                                    placeholder="Enter password"
                                     value={apiData.password}
-                                    onChange={(e) => setApiData({ ...apiData, password: e.target.value })}
+                                    onChange={(e) => setApiData({ ...apiData, password : e.target.value })}
                                 />
                             </Form.Group>
 
