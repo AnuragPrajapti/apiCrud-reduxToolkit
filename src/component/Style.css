@@ -1,0 +1,11 @@
+.form{
+    margin-top: 50px;
+    width: 70%;
+}
+.heading{
+    text-align: center; 
+}
+
+.Form.Control{
+    width: 50px;
+}
