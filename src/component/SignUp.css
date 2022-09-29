@@ -1,0 +1,43 @@
+.containerWrapper {
+  height: 110vh;
+  width : 100%;
+  margin-top: -50px;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.registerForm{
+  width: 100%;
+  padding: 20px 0px 0px 0px;
+  
+}
+
+.form {
+  width: 35%;
+  float: left;
+  background-color: rgb(73, 105, 116);
+  margin-top: 200px;
+  height: 600px;
+  margin-left: 184px;
+  
+}
+
+.image{
+  width: 40%;
+  float: right;
+  background-color: white;
+  margin-top: 200px;
+  height: 600px;
+  margin-right: 140px;
+}
+
+.form Form{
+  padding: 30px;
+}
+
+.registerBtn{
+  width: 200px;
+  box-shadow: 0 0 1px 1px;
+  margin: 0 0px 5px 0;
+  border-radius: 0px;
+}

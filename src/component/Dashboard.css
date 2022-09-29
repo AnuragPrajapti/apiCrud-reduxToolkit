@@ -1,0 +1,28 @@
+.deshboard {
+  background-color: rgb(221, 226, 226);
+  margin-top: 30px;
+}
+
+.container h3{
+  text-align: center;
+  padding-top: 20px;
+  border-bottom: solid 2px black;
+  width: 400px;
+  font-family:monospace;
+}
+.addUserbtn {
+  float: right;
+  width: 200px;
+  box-shadow: 0 0 1px 1px;
+  margin: 0 20px 5px 0;
+  border-radius: 0px;
+}
+
+.table th{
+    text-align: center;
+}
+
+
+.table td{
+    text-align: center;
+}

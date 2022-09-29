@@ -29,7 +29,7 @@ const SignIn = () => {
 
   return (
     <div>
-          <div className="form">
+          <div className="signInForm">
                         <Form> 
                             <Form.Group className='heading'>
                                 <h3>LogIn Here!!</h3>
