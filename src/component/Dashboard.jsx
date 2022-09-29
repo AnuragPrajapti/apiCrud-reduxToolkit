@@ -1,43 +1,65 @@
-import React, { useState } from 'react'
-import { useGetAddUserMutation, useGetAllPostQuery, useGetDeleteUserMutation } from '../redux-Toolkit/storeSlice'
+import React, { useState, useEffect } from 'react'
+import { useGetAddUserMutation, useGetAllPostQuery, useGetDeleteUserMutation, useGetEditUserMutation } from '../redux-Toolkit/storeSlice'
 import { NavLink } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-
+import Button from 'react-bootstrap/Button';
 
 const Dashboard = () => {
 
   const { data, isLoading, error } = useGetAllPostQuery();
+  const [addUser, responseInfo] = useGetAddUserMutation();
+  const [deleteUser, deleteResponse] = useGetDeleteUserMutation();
+  const [editUser, editResponse] = useGetEditUserMutation();
 
-  const [ addUser , responseInfo ] = useGetAddUserMutation();
-  const [ deleteUser , deleteResponse ] = useGetDeleteUserMutation();
-  //  console.log( localStorage.getItem('token') );
-  //  console.log("getAll post",data)
 
-  const [ addData , setAddData ] = useState({
-    name : "",
-    age : "",
-    city : ""
+
+  console.log('editResponse', editResponse);
+
+  const [addData, setAddData] = useState({
+    name: "",
+    age: "",
+    city: ""
   });
 
   const handelsubmit = (e) => {
     e.preventDefault();
     addUser(addData);
     setAddData({
-      name : "",
-      age : "",
-      city : ""
+      name: "",
+      age: "",
+      city: ""
     })
   }
 
-  const handleDelete =  (id)  =>{
-    console.log(8888,id)
+  const handleDelete = (id) => {
+    console.log(8888, id)
     deleteUser(id)
+  }
+
+  const handleEdit = (id) => {
+    console.log("editData", id);
+    editUser(id)
+  }
+
+  useEffect(() => {
+    const data = editResponse?.data;
+    console.log(2222, data)
+    setAddData({
+      name: data?.name,
+      age: data?.age,
+      city: data?.city,
+    })
+  }, [editResponse])
+
+
+  const handleUpdate = () =>{
+
   }
 
   return (
     <div>
       <h3 align="center">Dashboard</h3>
-      <button className='btn btn-dark'  data-toggle="modal" data-target="#exampleModal" >AddUser</button>
+      <button className='btn btn-dark' data-toggle="modal" data-target="#exampleModal" >AddUser</button>
       <div>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -70,7 +92,7 @@ const Dashboard = () => {
                       type="number"
                       placeholder="Enter Age"
                       value={addData.age}
-                      onChange={(e) => setAddData({ ...addData, age : e.target.value })}
+                      onChange={(e) => setAddData({ ...addData, age: e.target.value })}
                     />
                   </Form.Group>
 
@@ -80,10 +102,13 @@ const Dashboard = () => {
                       type="text"
                       placeholder="Enter City"
                       value={addData.city}
-                      onChange={(e) => setAddData({ ...addData, city : e.target.value })}
+                      onChange={(e) => setAddData({ ...addData, city: e.target.value })}
                     />
                   </Form.Group>
-              </Form>
+                  <Button variant="primary" onClick={handleUpdate} type="submit">
+                    Update User
+                  </Button>
+                </Form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -114,8 +139,15 @@ const Dashboard = () => {
                 <td>{item.name}</td>
                 <td>{item.age}</td>
                 <td>{item.city}</td>
-                <td><button className='btn btn-warning' >Edit</button></td>
-                <td ><button className='btn btn-danger' onClick={()=>handleDelete(item._id)} >Delete</button></td>
+                <td>
+                  <button
+                    className='btn btn-warning'
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                    onClick={() => handleEdit(item._id)}
+                  >Edit
+                  </button></td>
+                <td ><button className='btn btn-danger' onClick={() => handleDelete(item._id)} >Delete</button></td>
               </tr>)
           }
         </tbody>

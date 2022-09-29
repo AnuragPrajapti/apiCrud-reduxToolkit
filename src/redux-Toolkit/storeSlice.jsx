@@ -58,11 +58,26 @@ export const postApi = createApi({
             query : (deleteUser) => ({
                url : `delete/${deleteUser}`,
                method : 'DELETE',
-               body : deleteUser,
                headers : {
-                 'Content-type' : 'application/json',
+                'Content-type' : 'application/json',
                  Authorization : `Bearer ${Token}`
                }
+            })
+         }),
+         getEditUser : build.mutation({
+            query : (id) => ({
+               url : `get/${id}`,
+               method : 'GET',
+               headers : {
+                'Content-type' : 'application/json',
+                 Authorization : `Bearer ${Token}`
+               }
+            })
+         }),
+
+         getUpdateUser : build.mutation({
+            query : (id) => ({
+               
             })
          })
         
@@ -73,5 +88,6 @@ export const { useGetRegisterUserMutation ,
                useGetLoginUserMutation ,
                useGetAllPostQuery,
                useGetAddUserMutation ,
-               useGetDeleteUserMutation  
+               useGetDeleteUserMutation ,
+               useGetEditUserMutation 
             } = postApi;
