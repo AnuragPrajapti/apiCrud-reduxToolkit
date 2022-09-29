@@ -9,8 +9,8 @@ const SignIn = () => {
 
     const [loginUser , responseInfo] = useGetLoginUserMutation();
     const [apiData, setApiData] = useState({
-       name : "",
-       age  : "" ,
+        email : "",
+        password  : "" ,
     });
 
     
@@ -18,8 +18,8 @@ const SignIn = () => {
         e.preventDefault()
         loginUser(apiData)
         setApiData({
-            name : "",
-            age  : "" ,
+            email : "",
+            password  : "" ,
         })
         localStorage.setItem("token",responseInfo.data.token);
     }
