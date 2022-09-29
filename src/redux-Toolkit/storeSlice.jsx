@@ -76,8 +76,14 @@ export const postApi = createApi({
          }),
 
          getUpdateUser : build.mutation({
-            query : (id) => ({
-               
+            query : (updateUser) => ({
+               url : `update/${updateUser.id}`,
+               method : 'PUT',
+               body : updateUser,
+               headers : {
+                 'Content-type' : 'application/json',
+                 Authorization : `Bearer ${Token}`
+               }
             })
          })
         
@@ -89,5 +95,6 @@ export const { useGetRegisterUserMutation ,
                useGetAllPostQuery,
                useGetAddUserMutation ,
                useGetDeleteUserMutation ,
-               useGetEditUserMutation 
+               useGetEditUserMutation ,
+               useGetUpdateUserMutation
             } = postApi;
