@@ -7,9 +7,7 @@
 }
 
 .registerForm{
-  /* width: 1050px; */
   padding: 20px 0px 0px 0px;
-  
 }
 
 .form {
@@ -18,17 +16,22 @@
   background-color: rgb(73, 105, 116);
   margin-top: 200px;
   height: 600px;
-  margin-left: 184px;
+  margin-left: 110px;
   
 }
 
 .image{
   width: 40%;
-  float: right;
   background-color: white;
-  margin-top: -600px;
+  margin-top: 200px;
   height: 600px;
-  margin-right: 140px;
+  display: flex;
+}
+
+@media screen and (max-width : 767px) {
+   .image{
+    display: none;
+   }   
 }
 
 .image img{
@@ -40,8 +43,8 @@
 }
 
 .registerBtn{
-  width: 200px;
+  width: 400px;
   box-shadow: 0 0 1px 1px;
-  margin: 0 0px 5px 0;
+  margin: 10px 0px 5px 0;
   border-radius: 0px;
 }
