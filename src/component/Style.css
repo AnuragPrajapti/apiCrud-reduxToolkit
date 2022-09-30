@@ -1,6 +1,6 @@
 .signInForm{
     margin-top: 50px;
-    width: 70%;
+    width: 50%;
 }
 .heading{
     text-align: center; 
@@ -8,4 +8,9 @@
 
 .Form.Control{
     width: 50px;
+}
+
+.loginForm{
+    width: 500px;
+    margin-left: 50px;
 }

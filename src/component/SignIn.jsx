@@ -29,8 +29,8 @@ const SignIn = () => {
 
   return (
     <div>
-          <div className="signInForm">
-                        <Form> 
+          <div className="container  signInForm">
+                        <Form className='loginForm' > 
                             <Form.Group className='heading'>
                                 <h3>LogIn Here!!</h3>
                             </Form.Group>
