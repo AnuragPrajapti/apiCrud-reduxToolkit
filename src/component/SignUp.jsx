@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useGetRegisterUserMutation } from '../redux-Toolkit/storeSlice';
 import backgroundImage from '../assets/backgroundImage.jpg'
 import './SignUp.css'
+import  registerImage from '../assets/registerImage.jpg'
 
 const SignUp = () => {
 

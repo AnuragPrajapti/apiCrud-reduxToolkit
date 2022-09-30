@@ -7,13 +7,13 @@
 }
 
 .registerForm{
-  width: 100%;
+  /* width: 1050px; */
   padding: 20px 0px 0px 0px;
   
 }
 
 .form {
-  width: 35%;
+  /* width: 35%; */
   float: left;
   background-color: rgb(73, 105, 116);
   margin-top: 200px;
@@ -26,9 +26,13 @@
   width: 40%;
   float: right;
   background-color: white;
-  margin-top: 200px;
+  margin-top: -600px;
   height: 600px;
   margin-right: 140px;
+}
+
+.image img{
+  padding: 20px;
 }
 
 .form Form{
